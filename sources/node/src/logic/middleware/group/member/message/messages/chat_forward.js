@@ -22,7 +22,7 @@ class ChatForwardMessage extends Composer {
         ) {
             return next();
         }
-
+        console.log("deny chat forward enabled ")
         // check handler condition (is forwarded from chat and from channel)
         if (
             !(
@@ -33,7 +33,7 @@ class ChatForwardMessage extends Composer {
         ) {
             return next();
         }
-
+        console.log("forwarded from channel")
         // try warn
         // delete message
         if (

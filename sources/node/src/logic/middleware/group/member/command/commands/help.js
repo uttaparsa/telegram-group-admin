@@ -6,7 +6,6 @@ class HelpCommand extends Composer {
 
         // set database object
         this.database = database;
-
         // init middlewares
         this.command("help", this.help.bind(this));
         this.command(`help@${process.env.BOT_ID}`, this.help.bind(this));
@@ -18,6 +17,7 @@ Supported group member commands:
 
 /help
 /report
+/score
         `);
     }
 }

@@ -22,10 +22,8 @@ class Command extends Composer {
         this.use(new PingCommand(database));
 
         this.use(new AdminsCommand(database));
-
+        
         this.use(new GlobalLearnsCommand(database));
-        this.use(new GlobalLearnCommand(database));
-        this.use(new GlobalUnlearnCommand(database));
     }
 }
 

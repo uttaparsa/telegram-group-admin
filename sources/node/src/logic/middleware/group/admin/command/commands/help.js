@@ -13,8 +13,9 @@ class HelpCommand extends Composer {
     }
 
     async help(context, next) {
-        await context.replyWithMarkdown(`
-Supported public admin commands:
+        if(await this.database.is_boss(context.message.from.id)){
+            await context.replyWithMarkdown(`
+Supported public boss commands:
 
 /help
 /init
@@ -29,7 +30,22 @@ Supported public admin commands:
 /rules
 /addrule {rule}
 /removerule {rule}
-        `);
+            `);
+        }else{
+            await context.replyWithMarkdown(`
+Supported public admin commands:
+
+/help
+/delete [{number}]
+/warn [{number}]
+/unwarn [{number}]
+/learns
+/learn [{words}]
+/unlearn [{words}]
+/allrules
+/rules
+                    `);
+        }
     }
 }
 

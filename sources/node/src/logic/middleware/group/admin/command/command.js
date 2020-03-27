@@ -25,8 +25,6 @@ class Command extends Composer {
         // init middlewares
         this.use(new HelpCommand(database));
 
-        this.use(new InitCommand(database));
-        this.use(new LeaveCommand(database));
         this.use(new DeleteCommand(database));
 
         this.use(new WarnCommand(database));
@@ -38,8 +36,6 @@ class Command extends Composer {
 
         this.use(new AllRulesCommand(database));
         this.use(new RulesCommand(database));
-        this.use(new AddRuleCommand(database));
-        this.use(new RemoveRuleCommand(database));
     }
 }
 

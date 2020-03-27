@@ -15,6 +15,7 @@ class AddsMember extends Composer {
     async adds(context, next) {
         // iterate joined members and call handler
         for (let member of context.message.new_chat_members) {
+
             await this.adds_member.call(this, context, member);
             await this.adds_bot.call(this, context, member);
             await this.adds_me.call(this, context, member);
@@ -26,7 +27,7 @@ class AddsMember extends Composer {
         if (member.is_bot) {
             return;
         }
-
+        context.reply(`خوش اومدی ${context.message.new_chat_member.first_name}`);
         // set parent
         await this.database.set_parent(
             context.message.chat.id,

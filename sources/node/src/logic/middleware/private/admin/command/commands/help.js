@@ -13,7 +13,8 @@ class HelpCommand extends Composer {
     }
 
     async help(context, next) {
-        await context.replyWithMarkdown(`
+        if(await this.database.is_boss(context.message.from.id)){
+            await context.replyWithMarkdown(`
 Supported private admin commands:
 
 /start
@@ -23,8 +24,20 @@ Supported private admin commands:
 /globallearns
 /globallearn [{words}]
 /globalunlearn [{words}]
-        `);
+                    `);
+        }else{
+            await context.replyWithMarkdown(`
+Supported private admin commands:
+
+/start
+/help
+/ping
+/admins
+/globallearns
+                    `);
+        }
     }
 }
+
 
 exports.HelpCommand = HelpCommand;

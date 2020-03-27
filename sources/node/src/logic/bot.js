@@ -11,7 +11,8 @@ class Bot {
         this.bot = new Telegraf(token);
         this.database = new Database();
         this.bot.catch(error => {
-            console.error(`Bot error: ${error}`);
+            console.error(`bot:Bot error: ${error}`);
+            console.error('You had an error: ', error.stack);
         });
     }
 

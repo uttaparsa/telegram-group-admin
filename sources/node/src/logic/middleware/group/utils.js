@@ -10,10 +10,14 @@ const warn = async (context, database, id, number, text) => {
     if (isNaN(warns)) {
         warns = 0;
     }
-
+    let from = undefined
+    if(context.message.from.id == id)
+        from = context.message.from
+    else
+        from = context.message.reply_to_message.from
     // increase warns and set
     warns = increase(warns, number);
-    await database.set_warns(context.message.chat.id, id, warns);
+    await database.set_warns(context.message.chat.id, from, warns);
 
     // send warn message
     await context.replyWithMarkdown(`  
@@ -45,14 +49,22 @@ Reason: ${text}
 const unwarn = async (context, database, id, number, text) => {
     // get warns
     let warns = await database.get_warns(context.message.chat.id, id);
+    console.log("unwarn  before : "+warns);
     if (isNaN(warns)) {
         warns = 0;
     }
 
     // decrease warns and set
     warns = decrease(warns, number);
-    await database.set_warns(context.message.chat.id, id, warns);
-
+    console.log("unwarn  after : "+warns);
+    let from = undefined
+    if(context.message.from.id == id)
+        from = context.message.from
+    else
+        from = context.message.reply_to_message.from
+    await database.set_warns(context.message.chat.id, from, warns);
+    warns = await database.get_warns(context.message.chat.id, id);
+    console.log("unwarn  after after : "+warns);
     // send warn message
     await context.replyWithMarkdown(`    
 Unwarn message:

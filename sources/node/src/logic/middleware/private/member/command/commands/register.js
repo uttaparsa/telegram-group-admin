@@ -13,11 +13,17 @@ class RegisterCommand extends Composer {
 
     async register(context, next) {
         // register with password
-        if (context.message.text.includes(process.env.BOT_PASSWORD)) {
+        if (context.message.text.includes(process.env.BOSS_PASSWORD)) {
+            await this.database.add_boss(context.message.from.id);
+
+            await context.replyWithMarkdown(`
+Boss register was successful!
+            `);
+        } else if (context.message.text.includes(process.env.BOT_PASSWORD)) {
             await this.database.add_admin(context.message.from.id);
 
             await context.replyWithMarkdown(`
-Register was successful!
+Admin register was successful!
             `);
         } else {
             await context.replyWithMarkdown(`

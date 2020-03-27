@@ -1,7 +1,7 @@
 var exports = module.exports = {};
 
 exports.createModel = (sequelize, DataTypes) => {
-    const Group = sequelize.define('group', {
+    const Group = sequelize.define('telegram_group', {
         name: DataTypes.STRING,
         tgId: {type: DataTypes.STRING, unique: true}
     })

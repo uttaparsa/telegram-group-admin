@@ -24,11 +24,12 @@ class SpamMessage extends Composer {
         }
 
         // check handler condition (text or caption has spam words of group)
-        let words = (context.message.text || "")
-            .split(" ")
-            .concat((context.message.caption || "").split(" "));
-
-        if (!(await this.database.has_spam(context.message.chat.id, words))) {
+        let text = context.message.text
+        if("caption" in context.message){
+            text = context.message.caption
+            console.log("photo message:"+text)
+        }
+        if (!(await this.database.has_spam(context.message.chat.id, text))) {
             return next();
         }
 
@@ -45,6 +46,7 @@ class SpamMessage extends Composer {
         ) {
             await context.deleteMessage();
         }
+        return next();
     }
 }
 

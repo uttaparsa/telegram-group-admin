@@ -5,6 +5,7 @@ const UserModel = require(__dirname + "/user");
 const GroupModel = require(__dirname + "/group");
 const RuleModel = require(__dirname + "/rule");
 const SpamModel = require(__dirname + "/spam");
+const MessageModel = require(__dirname + "/message");
 const ClearPeriodModel = require(__dirname + "/clear_period");
 const ParentChildInGroupModel = require(__dirname + "/parent_child_in_group");
 
@@ -12,7 +13,8 @@ const dbConfig = getDatabaseConfig();
 const options = {
     host: dbConfig.host,
     dialect: dbConfig.dialect,
-    operatorsAliases: false
+    operatorsAliases: false,
+    logging: false
 };
 
 if (options.dialect == "sqlite") {
@@ -31,6 +33,7 @@ const User = UserModel.createModel(sequelize, Sequelize);
 const Group = GroupModel.createModel(sequelize, Sequelize);
 const Rule = RuleModel.createModel(sequelize, Sequelize);
 const Spam = SpamModel.createModel(sequelize, Sequelize);
+const Message = MessageModel.createModel(sequelize, Sequelize);
 const ClearPeriod = ClearPeriodModel.createModel(sequelize, Sequelize);
 const ParentChildInGroup = ParentChildInGroupModel.createModel(
     sequelize,
@@ -50,8 +53,11 @@ class Database {
         }
 
         const UserGroup = sequelize.define("UserGroup", {
-            warnsNumber: { type: Sequelize.INTEGER.UNSIGNED, defaultValue: 0 }
+            warnsNumber: { type: Sequelize.INTEGER.UNSIGNED, defaultValue: 0 },
+            scoreNumber: { type: Sequelize.FLOAT, defaultValue: 0 }
         });
+
+        this.UserGroups = UserGroup;
 
         User.belongsToMany(Group, { through: UserGroup });
         Group.belongsToMany(User, { through: UserGroup });
@@ -61,6 +67,9 @@ class Database {
 
         Rule.belongsToMany(Group, { through: "GroupRule" });
         Group.belongsToMany(Rule, { through: "GroupRule" });
+
+        Message.belongsToMany(Group, { through: "MessageGroup" });
+        Group.belongsToMany(Message, { through: "MessageGroup" });
 
         Group.hasMany(ClearPeriod);
 
@@ -99,6 +108,42 @@ class Database {
         return await Admin.findAll();
     }
 
+    async is_boss(bossTgId) {
+        const boss = await Admin.findBossByTgId(bossTgId);
+        if (boss != null) {
+            return true;
+        }
+
+        return false;
+    }
+
+    async add_boss(adminTgId) {
+        const [boss, _] = await Admin.findOrCreate({
+            where: {
+                tgId: adminTgId,
+                is_boss:true
+            }
+        });
+
+        return boss;
+    }
+
+    async remove_boss(adminTgId) {
+        await Boss.destroy({
+            where: {
+                tgId: adminTgId
+            }
+        });
+    }
+
+    async get_bosses() {
+        return await admin.findAll({
+            where: {
+                is_boss:true
+            }
+          });
+    }
+
     async set_admins(adminTgIds) {
         await Admin.destroy({
             where: {},
@@ -117,21 +162,50 @@ class Database {
         if (group == null) {
             return false;
         }
+        console.log(`the hasspam function ${await group.hasSpam}`)
 
         return (await group.hasSpam(spam)) || (await this.is_global_spam(text));
     }
 
-    async has_spam(groupTgId, texts) {
-        for (let i = 0; i < texts.length; i++) {
-            const check = await this.is_spam(groupTgId, texts[i]);
 
-            if (check) {
-                return true;
-            }
+    async has_spam(groupTgId, text){
+        const group_spams = (await this.get_spams(groupTgId)).map(spam  => spam.get('text') );
+        console.log(`get_spams_regex len of group spams : ${group_spams.length}`)
+        const regex_string = this.get_spams_regex(group_spams);
+        console.log(` regex array : ${regex_string}`);
+        console.log(`is this a match?: ${text.match(new RegExp(regex_string , "i"))}`)
+        if (group_spams.length == 0 )
+            return false;
+        if(text.match(new RegExp(regex_string , "i"))){
+            console.log("it was  a match")
+            return true;
         }
-
         return false;
     }
+    get_spams_regex(group_spams){
+        var regex_array =  new Array();
+        
+        group_spams.forEach(spam => {
+            String.prototype.insert = function(index, string) {
+                if (index > 0)
+                {
+                  return this.substring(0, index) + string + this.substring(index, this.length);
+                }
+              
+                return string + this;
+              };
+              const spam_length = spam.length
+              var spam_with_dots = spam
+              for (var i = spam_length-1; i > 0; i--) {
+                spam_with_dots = spam_with_dots.insert(i,"\.*,*،*")
+              }
+              regex_array.push(spam_with_dots);
+            //   console.log("spam with dots : "+spam_with_dots)
+        });
+        return regex_array.join("|")
+    }
+
+
 
     async add_spam(groupTgId, text) {
         const group = await Group.findByTgId(groupTgId);
@@ -258,7 +332,69 @@ class Database {
         }
     }
 
-    async get_warns(groupTgId, userTgId) {
+    async get_warns(groupTgId, userTgId ) {
+        const group = await Group.findByTgId(groupTgId);
+        const [user, _] = await User.findOrCreateOnlyByTgId(userTgId);
+        var ress;
+        const ans = await this.UserGroups.findOne(
+            { where: {userId : user.id  , telegramGroupId:group.id } }
+          )
+
+
+
+        console.log("ans is : "+ans)
+        console.log("wn is : "+ans.warnsNumber)
+        return ans.warnsNumber;
+    }
+
+    async set_warns(groupTgId, from, warnsNum ) {
+        const group = await Group.findByTgId(groupTgId);
+        const [user, _] = await User.findOrCreateByTgId(from.id , from.first_name , from.last_name);
+        group.addUsers(user)
+        console.log("setwarns: uid : "+user.id+" gid :"+group.id)
+        this.UserGroups.update(
+            { warnsNumber: warnsNum },
+            { where: {userId : user.id  , telegramGroupId:group.id } }
+          ).then(result =>
+            console.log("update successful"+result)
+          )
+          .catch(err =>
+            console.log("update  err : "+err)
+          )
+
+
+    }
+    async set_score(groupTgId, from, scoreNum){
+        const group = await Group.findByTgId(groupTgId);
+        const [user, _] = await User.findOrCreateByTgId(from.id, from.first_name , from.last_name);
+        group.addUsers(user)
+        this.UserGroups.update(
+            { scoreNumber: scoreNum },
+            { where: {userId : user.id  , telegramGroupId:group.id} }
+          ).then(result =>
+            console.log("update successful"+result)
+          )
+          .catch(err =>
+            console.log("update  err : "+err)
+          )
+
+
+    }
+
+    async save_message_to_db(groupTgId , from , message_id , text , date){
+        const group = await Group.findByTgId(groupTgId);
+        const [message, _] = await Message.findOrCreate({
+            where: {
+                text: text,
+                sender_id : from.id,
+                message_id : message_id,
+                date_send:date
+            }
+        });
+        console.log('saving message')
+        await group.addMessage(message);
+    }
+    async get_score(groupTgId, userTgId) {
         const group = await Group.findOne({
             where: { tgId: groupTgId },
             include: [
@@ -267,27 +403,18 @@ class Database {
                 }
             ]
         });
-
+        console.log("get_score:GOT MODEL")
         const user = group.dataValues.users.find(usr => {
             return usr.tgId == userTgId;
         });
 
         if (user != undefined) {
-            return user.UserGroup.warnsNumber;
+            console.log("get_score:user is defined")
+            return user.UserGroup.scoreNumber;
         }
-
+        console.log("get_score:returning nan")
         return NaN;
     }
-
-    async set_warns(groupTgId, userTgId, warnsNum) {
-        const group = await Group.findByTgId(groupTgId);
-        const [user, _] = await User.findOrCreateByTgId(userTgId);
-
-        await group.addUser(user, {
-            through: { warnsNumber: warnsNum }
-        });
-    }
-
     async get_parent(groupTgId, childTgId) {
         const result = await ParentChildInGroup.findOne({
             where: {
@@ -382,6 +509,17 @@ class Database {
         }
 
         return await group.hasRule(rule);
+    }
+
+    async group_ours(groupTgId){
+        const group = await Group.findByTgId(groupTgId);
+
+        if (group == null) {
+            return false;
+        }
+
+        return true;
+
     }
 }
 

@@ -13,5 +13,6 @@ start()
         console.log(`Bot Started: ${result}`);
     })
     .catch(error => {
-        console.log(`Bot Error: ${error}`);
+        console.log(`app:Bot Error: ${error}`);
+        console.error('You had an error: ', error.stack);
     });
