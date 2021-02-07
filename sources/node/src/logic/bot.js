@@ -1,4 +1,4 @@
-const Telegraf = require("telegraf");
+const {Telegraf} = require("telegraf");
 
 const { Database } = require("../database/db_manager.js");
 
