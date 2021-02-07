@@ -12,8 +12,18 @@ class ScoreCommand extends Composer {
     }
 
     async score(context, next) {
-        let user_score = await this.database.get_score(context.message.chat.id, context.message.from.id)
-        await context.replyWithMarkdown(`Your score is : ${user_score}`);
+        if (
+            (await this.database.has_rule(
+                context.message.chat.id,
+                "CALC_SCORES"
+            ))
+        ) {
+            let user_score = await this.database.get_score(context.message.chat.id, context.message.from.id)
+            await context.replyWithMarkdown(`Your score is : ${user_score}`);
+        }else{
+            await context.replyWithMarkdown(`Score rule is disabled`);
+        }
+        
     }
 }
 

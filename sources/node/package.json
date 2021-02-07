@@ -16,7 +16,7 @@
         "axios": "^0.21.1",
         "dotenv": "^8.2.0",
         "mysql2": "^2.2.5",
-        "sequelize": "^6.5.0",
+        "sequelize": "^4.41.1",
         "sqlite3": "^5.0.1",
         "telegraf": "^3.*",
         "telegraf-session-mysql": "^5.1.0",

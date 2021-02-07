@@ -7,6 +7,10 @@ An opensource Telegram Groups administrator bot
 1. **database**
 2. **logic**
 
+## How to use
+
+There are two types of admins , boss and admins. bosses have larger variety of abilities.
+
 ## Building
 
 Commands:
