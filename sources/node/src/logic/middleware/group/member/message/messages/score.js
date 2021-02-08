@@ -32,7 +32,7 @@ class ScoreMessage extends Composer {
         console.log('user score is : '+scores)
 
         // increase warns and set
-        scores += 0.05;
+        scores += 5;
         await this.database.set_score(context.message.chat.id,  context.message.from, scores);
         
         return next();

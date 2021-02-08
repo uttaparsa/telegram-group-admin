@@ -12,7 +12,7 @@ const { ChatForwardMessage } = require("./messages/chat_forward.js");
 const { LinkMessage } = require("./messages/link.js");
 const { FileMessage } = require("./messages/file.js");
 const { ScoreMessage } = require("./messages/score.js");
-
+const { MessageRemover } = require("./messages/message_remover");
 class Message extends Composer {
     constructor(database) {
         super();
@@ -28,7 +28,9 @@ class Message extends Composer {
 
         this.use(new LinkMessage(database));
         this.use(new FileMessage(database));
+
         this.use(new ScoreMessage(database))
+        this.use(new MessageRemover(database))
     }
 }
 

@@ -18,6 +18,7 @@ class AllRulesCommand extends Composer {
     async allrules(context, next) {
         // group rules
         let all_rules = [
+            "DISABLE_CHAT",
             "SAVE_MESSAGES",
             "CALC_SCORES",
             "DENY_SPAM",
