@@ -2,8 +2,6 @@ const Composer = require("telegraf/composer");
 
 const { HelpCommand } = require("./commands/help.js");
 
-const { InitCommand } = require("./commands/init.js");
-const { LeaveCommand } = require("./commands/leave.js");
 const { DeleteCommand } = require("./commands/delete.js");
 
 const { WarnCommand } = require("./commands/warn.js");
@@ -15,8 +13,6 @@ const { UnlearnCommand } = require("./commands/unlearn.js");
 
 const { AllRulesCommand } = require("./commands/allrules.js");
 const { RulesCommand } = require("./commands/rules.js");
-const { AddRuleCommand } = require("./commands/addrule.js");
-const { RemoveRuleCommand } = require("./commands/removerule.js");
 
 class Command extends Composer {
     constructor(database) {

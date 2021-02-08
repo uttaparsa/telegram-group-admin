@@ -14,3 +14,172 @@
 {"message":"app.js: Bot Started: undefined","level":"info"}
 {"message":"app.js: Bot Started: undefined","level":"info"}
 {"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: ","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: ","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: {}","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: {}","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: TypeError: Cannot read property 'bind' of undefined\n    at new SetWelcome (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/commands/setwelcome.js:13:68)\n    at new BossCommand (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/boss_command.js:45:18)\n    at new Admin (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/admin.js:14:56)\n    at new Group (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/group.js:12:57)\n    at Bot.init (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/bot.js:25:22)\n    at async start (/home/parsas/Documents/telegram-group-admin/sources/node/src/app.js:10:5)","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: TypeError: Cannot read property 'bind' of undefined\n    at new SetWelcome (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/commands/setwelcome.js:13:68)\n    at new BossCommand (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/boss_command.js:45:18)\n    at new Admin (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/admin.js:14:56)\n    at new Group (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/group.js:12:57)\n    at Bot.init (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/bot.js:25:22)\n    at async start (/home/parsas/Documents/telegram-group-admin/sources/node/src/app.js:10:5)","level":"error"}
+{"message":"app.js: app:Bot Error: TypeError: Cannot read property 'bind' of undefined","level":"info"}
+{"message":"app.js: You had an error: TypeError: Cannot read property 'bind' of undefined\n    at new SetWelcome (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/commands/setwelcome.js:13:68)\n    at new BossCommand (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/command/boss_command.js:45:18)\n    at new Admin (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/admin/admin.js:14:56)\n    at new Group (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/middleware/group/group.js:12:57)\n    at Bot.init (/home/parsas/Documents/telegram-group-admin/sources/node/src/logic/bot.js:25:22)\n    at async start (/home/parsas/Documents/telegram-group-admin/sources/node/src/app.js:10:5)","level":"error"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"adds.js: log message not set for -523811115!","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"adds.js: welcome message not set for -523811115!","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `is_boss` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `admins`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `users`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `telegram_groups` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `tgId` VARCHAR(255) UNIQUE, `welcome_message` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `telegram_groups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `rules` (`id` INTEGER NOT NULL auto_increment , `type` VARCHAR(255) UNIQUE, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `rules`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `spams` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255) UNIQUE, `isGlobal` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `spams`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `messages` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255), `sender_id` VARCHAR(255), `message_id` VARCHAR(255), `date_send` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `messages`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `clearPeriods` (`id` INTEGER NOT NULL auto_increment , `from` INTEGER UNSIGNED, `to` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `telegramGroupId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `clearPeriods`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `ParentChildInGroups` (`parentTgId` VARCHAR(255) , `childTgId` VARCHAR(255) , `groupTgId` VARCHAR(255) , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`parentTgId`, `childTgId`, `groupTgId`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `ParentChildInGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `UserGroups` (`warnsNumber` INTEGER UNSIGNED DEFAULT 0, `scoreNumber` FLOAT DEFAULT 0, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`userId`, `telegramGroupId`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `UserGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `SpamGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `spamId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`spamId`, `telegramGroupId`), FOREIGN KEY (`spamId`) REFERENCES `spams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `SpamGroup`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `GroupRule` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `ruleId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`ruleId`, `telegramGroupId`), FOREIGN KEY (`ruleId`) REFERENCES `rules` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `GroupRule`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `MessageGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `messageId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`messageId`, `telegramGroupId`), FOREIGN KEY (`messageId`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `MessageGroup`","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890 AND `admin`.`is_boss` = true;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `tgId`, `name`, `lastname`, `is_boss`, `createdAt`, `updatedAt` FROM `admins` AS `admin` WHERE `admin`.`tgId` = 583407890;","level":"info"}
+{"message":"db_manager.js: Executing (5910eb68-31cd-4b7b-ac75-57b725d7f7c6): START TRANSACTION;","level":"info"}
+{"message":"db_manager.js: Executing (5910eb68-31cd-4b7b-ac75-57b725d7f7c6): SELECT `id`, `name`, `tgId`, `welcome_message`, `createdAt`, `updatedAt` FROM `telegram_groups` AS `telegram_group` WHERE `telegram_group`.`name` = NULL AND `telegram_group`.`tgId` = -523811115;","level":"info"}
+{"message":"db_manager.js: Executing (5910eb68-31cd-4b7b-ac75-57b725d7f7c6): INSERT INTO `telegram_groups` (`id`,`tgId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,-523811115,'2021-02-08 14:40:42','2021-02-08 14:40:42');","level":"info"}
+{"message":"db_manager.js: Executing (default): SELECT `id`, `name`, `tgId`, `welcome_message`, `createdAt`, `updatedAt` FROM `telegram_groups` AS `telegram_group` WHERE `telegram_group`.`name` = NULL AND `telegram_group`.`tgId` = -523811115;","level":"info"}
+{"message":"db_manager.js: Executing (5910eb68-31cd-4b7b-ac75-57b725d7f7c6): COMMIT;","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `is_boss` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `admins`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `users`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `telegram_groups` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `tgId` VARCHAR(255) UNIQUE, `welcome_message` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `telegram_groups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `rules` (`id` INTEGER NOT NULL auto_increment , `type` VARCHAR(255) UNIQUE, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `rules`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `spams` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255) UNIQUE, `isGlobal` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `spams`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `messages` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255), `sender_id` VARCHAR(255), `message_id` VARCHAR(255), `date_send` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `messages`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `clearPeriods` (`id` INTEGER NOT NULL auto_increment , `from` INTEGER UNSIGNED, `to` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `telegramGroupId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `clearPeriods`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `ParentChildInGroups` (`parentTgId` VARCHAR(255) , `childTgId` VARCHAR(255) , `groupTgId` VARCHAR(255) , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`parentTgId`, `childTgId`, `groupTgId`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `ParentChildInGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `UserGroups` (`warnsNumber` INTEGER UNSIGNED DEFAULT 0, `scoreNumber` FLOAT DEFAULT 0, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`userId`, `telegramGroupId`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `UserGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `SpamGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `spamId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`spamId`, `telegramGroupId`), FOREIGN KEY (`spamId`) REFERENCES `spams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `SpamGroup`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `GroupRule` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `ruleId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`ruleId`, `telegramGroupId`), FOREIGN KEY (`ruleId`) REFERENCES `rules` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `GroupRule`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `MessageGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `messageId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`messageId`, `telegramGroupId`), FOREIGN KEY (`messageId`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `MessageGroup`","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `is_boss` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `admins`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `users`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `telegram_groups` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `tgId` VARCHAR(255) UNIQUE, `welcome_message` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `telegram_groups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `rules` (`id` INTEGER NOT NULL auto_increment , `type` VARCHAR(255) UNIQUE, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `rules`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `spams` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255) UNIQUE, `isGlobal` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `spams`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `messages` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255), `sender_id` VARCHAR(255), `message_id` VARCHAR(255), `date_send` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `messages`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `clearPeriods` (`id` INTEGER NOT NULL auto_increment , `from` INTEGER UNSIGNED, `to` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `telegramGroupId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `clearPeriods`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `ParentChildInGroups` (`parentTgId` VARCHAR(255) , `childTgId` VARCHAR(255) , `groupTgId` VARCHAR(255) , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`parentTgId`, `childTgId`, `groupTgId`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `ParentChildInGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `UserGroups` (`warnsNumber` INTEGER UNSIGNED DEFAULT 0, `scoreNumber` FLOAT DEFAULT 0, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`userId`, `telegramGroupId`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `UserGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `SpamGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `spamId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`spamId`, `telegramGroupId`), FOREIGN KEY (`spamId`) REFERENCES `spams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `SpamGroup`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `GroupRule` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `ruleId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`ruleId`, `telegramGroupId`), FOREIGN KEY (`ruleId`) REFERENCES `rules` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `GroupRule`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `MessageGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `messageId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`messageId`, `telegramGroupId`), FOREIGN KEY (`messageId`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `MessageGroup`","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `admins` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `is_boss` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `admins`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `tgId` VARCHAR(255) UNIQUE, `name` VARCHAR(255), `lastname` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `users`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `telegram_groups` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `tgId` VARCHAR(255) UNIQUE, `welcome_message` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `telegram_groups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `rules` (`id` INTEGER NOT NULL auto_increment , `type` VARCHAR(255) UNIQUE, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `rules`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `spams` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255) UNIQUE, `isGlobal` TINYINT(1) NOT NULL DEFAULT false, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `spams`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `messages` (`id` INTEGER NOT NULL auto_increment , `text` VARCHAR(255), `sender_id` VARCHAR(255), `message_id` VARCHAR(255), `date_send` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `messages`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `clearPeriods` (`id` INTEGER NOT NULL auto_increment , `from` INTEGER UNSIGNED, `to` INTEGER UNSIGNED, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `telegramGroupId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `clearPeriods`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `ParentChildInGroups` (`parentTgId` VARCHAR(255) , `childTgId` VARCHAR(255) , `groupTgId` VARCHAR(255) , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`parentTgId`, `childTgId`, `groupTgId`)) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `ParentChildInGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `UserGroups` (`warnsNumber` INTEGER UNSIGNED DEFAULT 0, `scoreNumber` FLOAT DEFAULT 0, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`userId`, `telegramGroupId`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `UserGroups`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `SpamGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `spamId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`spamId`, `telegramGroupId`), FOREIGN KEY (`spamId`) REFERENCES `spams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `SpamGroup`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `GroupRule` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `ruleId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`ruleId`, `telegramGroupId`), FOREIGN KEY (`ruleId`) REFERENCES `rules` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `GroupRule`","level":"info"}
+{"message":"db_manager.js: Executing (default): CREATE TABLE IF NOT EXISTS `MessageGroup` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `messageId` INTEGER , `telegramGroupId` INTEGER , PRIMARY KEY (`messageId`, `telegramGroupId`), FOREIGN KEY (`messageId`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`telegramGroupId`) REFERENCES `telegram_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;","level":"info"}
+{"message":"db_manager.js: Executing (default): SHOW INDEX FROM `MessageGroup`","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: changed welcome message of group -523811115 to خوش اومدیید سرورم","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"db_manager.js: changed welcome message of group -523811115 to خوش اومدیید سرورم","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}
+{"message":"app.js: Bot Started: undefined","level":"info"}

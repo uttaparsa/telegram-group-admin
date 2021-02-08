@@ -17,7 +17,7 @@ start()
     })
     .catch(error => {
         log.info(`app:Bot Error: ${error}`);
-        log.error('You had an error: ', error.stack);
+        log.error(`You had an error: ${error.stack}`);
     });
 // const {
 //     Telegraf

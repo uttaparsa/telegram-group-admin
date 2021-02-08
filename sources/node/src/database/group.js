@@ -16,6 +16,7 @@ exports.createModel = (sequelize, DataTypes) => {
         return group
     }
 
+
     Group.removeGroupByTgId = async function(groupTgId) {
         await this.destroy({
             where: {

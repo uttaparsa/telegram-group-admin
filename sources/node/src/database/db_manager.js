@@ -435,7 +435,12 @@ class Database {
     }
 
     async set_parent(groupTgId, childTgId, parentTgId) {
-        await this.find_or_create_group(groupTgId);
+        try {
+            await this.find_or_create_group(groupTgId);
+          } catch (e) {
+            log.info("group already exists!")
+          }
+        
 
         await ParentChildInGroup.destroy({
             where: {
@@ -462,9 +467,13 @@ class Database {
         return group;
     }
 
-    async set_group_welcome_message(groupId , name){
+    async set_group_welcome_message(groupId , welcome_msg){
         // TODO : complete this!!
+        const group = await Group.findByTgId(groupId);
 
+        group.welcome_message = welcome_msg;
+        await group.save();
+        log.info(`changed welcome message of group ${group.tgId} to ${group.welcome_message}`)
 
     }
 
@@ -476,6 +485,12 @@ class Database {
         });
 
         return rule;
+    }
+
+    async get_group_welcome_message(groupTgId){
+        const group = await Group.findByTgId(groupTgId);
+
+        return group.welcome_message
     }
 
     async add_rule_to_group(groupTgId, ruleType) {

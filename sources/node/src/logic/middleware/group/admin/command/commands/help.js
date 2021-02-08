@@ -30,6 +30,8 @@ Supported public boss commands:
 /rules
 /addrule {rule}
 /removerule {rule}
+/setwelcome "welcome message"
+
             `);
         }else{
             await context.replyWithMarkdown(`

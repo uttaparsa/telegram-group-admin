@@ -1,8 +1,12 @@
+const { groupChat } = require("telegraf/composer");
 const Composer = require("telegraf/composer");
 const {
     warn,
     unwarn
 } = require("../../../utils.js");
+
+const projectRoot = require('app-root-path');
+const log = require(projectRoot + '/src/logger.js')(__filename)
 
 class AddsMember extends Composer {
     constructor(database) {
@@ -30,7 +34,12 @@ class AddsMember extends Composer {
         if (member.is_bot) {
             return;
         }
-        context.reply(`خوش اومدی ${context.message.new_chat_member.first_name}`);
+
+        let welcome_message = await this.database.get_group_welcome_message(context.message.chat.id);
+        if(welcome_message )
+            context.reply(welcome_message);
+        else
+            log.info(`welcome message not set for ${context.message.chat.id}!`)
         // set parent
         await this.database.set_parent(
             context.message.chat.id,

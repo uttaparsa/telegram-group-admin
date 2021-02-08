@@ -17,6 +17,8 @@ const { AllRulesCommand } = require("./commands/allrules.js");
 const { RulesCommand } = require("./commands/rules.js");
 const { AddRuleCommand } = require("./commands/addrule.js");
 const { RemoveRuleCommand } = require("./commands/removerule.js");
+const { SetWelcome } = require("./commands/setwelcome.js");
+
 
 class BossCommand extends Composer {
     constructor(database) {
@@ -40,6 +42,7 @@ class BossCommand extends Composer {
         this.use(new RulesCommand(database));
         this.use(new AddRuleCommand(database));
         this.use(new RemoveRuleCommand(database));
+        this.use(new SetWelcome(database));
     }
 }
 
