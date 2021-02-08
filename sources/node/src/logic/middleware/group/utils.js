@@ -49,14 +49,14 @@ Reason: ${text}
 const unwarn = async (context, database, id, number, text) => {
     // get warns
     let warns = await database.get_warns(context.message.chat.id, id);
-    console.log("unwarn  before : "+warns);
+    log.info("unwarn  before : "+warns);
     if (isNaN(warns)) {
         warns = 0;
     }
 
     // decrease warns and set
     warns = decrease(warns, number);
-    console.log("unwarn  after : "+warns);
+    log.info("unwarn  after : "+warns);
     let from = undefined
     if(context.message.from.id == id)
         from = context.message.from
@@ -64,7 +64,7 @@ const unwarn = async (context, database, id, number, text) => {
         from = context.message.reply_to_message.from
     await database.set_warns(context.message.chat.id, from, warns);
     warns = await database.get_warns(context.message.chat.id, id);
-    console.log("unwarn  after after : "+warns);
+    log.info("unwarn  after after : "+warns);
     // send warn message
     await context.replyWithMarkdown(`    
 Unwarn message:

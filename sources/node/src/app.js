@@ -1,5 +1,8 @@
 require("dotenv").config();
 const { Bot } = require("./logic/bot.js");
+const projectRoot = require('app-root-path');
+const log = require(projectRoot + '/src/logger.js')(__filename)
+
 
 const start = async () => {
     // start bot
@@ -10,11 +13,11 @@ const start = async () => {
 
 start()
     .then(result => {
-        console.log(`Bot Started: ${result}`);
+        log.info(`Bot Started: ${result}`);
     })
     .catch(error => {
-        console.log(`app:Bot Error: ${error}`);
-        console.error('You had an error: ', error.stack);
+        log.info(`app:Bot Error: ${error}`);
+        log.error('You had an error: ', error.stack);
     });
 // const {
 //     Telegraf

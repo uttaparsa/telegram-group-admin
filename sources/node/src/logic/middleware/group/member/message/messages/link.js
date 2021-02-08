@@ -23,16 +23,16 @@ class LinkMessage extends Composer {
         ) {
             return next();
         }
-        console.log("deny link  enabled ")
+        log.info("deny link  enabled ")
 
         let text = context.message.text
         if("caption" in context.message){
             text = context.message.caption
-            console.log("photo message:"+text)
+            log.info("photo message:"+text)
         }
         const regex_string = "(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
         if(!text.match(new RegExp(regex_string , "i"))){
-            console.log("it was NOT link  a match")
+            log.info("it was NOT link  a match")
             return next()
         }
         

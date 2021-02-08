@@ -26,11 +26,11 @@ class DeleteCommand extends Composer {
             let message = 0;
             let message_id = context.message.reply_to_message.message_id;
             let this_id = context.message.message_id;
-            console.log('deleted message')
+            log.info('deleted message')
             let limit = 100
 
             while ((number >= 0 )&&( message <= limit )&&( message >= -limit)) {
-                console.log("delete loop")
+                log.info("delete loop")
                 try {
                     await context.telegram.deleteMessage(
                         context.message.chat.id,
@@ -43,7 +43,7 @@ class DeleteCommand extends Composer {
                         break;
                     }
                 } catch (error) {
-                    console.log(`error during deleting ${error}`)
+                    log.info(`error during deleting ${error}`)
                 }
 
                 // message += number >= 0 ? 1 : -1;

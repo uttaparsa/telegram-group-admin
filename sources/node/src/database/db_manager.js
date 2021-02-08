@@ -9,6 +9,10 @@ const MessageModel = require(__dirname + "/message");
 const ClearPeriodModel = require(__dirname + "/clear_period");
 const ParentChildInGroupModel = require(__dirname + "/parent_child_in_group");
 
+const projectRoot = require('app-root-path');
+const log = require(projectRoot + '/src/logger.js')(__filename)
+
+
 const dbConfig = getDatabaseConfig();
 const options = {
     host: dbConfig.host,
@@ -162,7 +166,7 @@ class Database {
         if (group == null) {
             return false;
         }
-        console.log(`the hasspam function ${await group.hasSpam}`)
+        log.info(`the hasspam function ${await group.hasSpam}`)
 
         return (await group.hasSpam(spam)) || (await this.is_global_spam(text));
     }
@@ -170,14 +174,14 @@ class Database {
 
     async has_spam(groupTgId, text){
         const group_spams = (await this.get_spams(groupTgId)).map(spam  => spam.get('text') );
-        console.log(`get_spams_regex len of group spams : ${group_spams.length}`)
+        log.info(`get_spams_regex len of group spams : ${group_spams.length}`)
         const regex_string = this.get_spams_regex(group_spams);
-        console.log(` regex array : ${regex_string}`);
-        console.log(`is this a match?: ${text.match(new RegExp(regex_string , "i"))}`)
+        log.info(` regex array : ${regex_string}`);
+        log.info(`is this a match?: ${text.match(new RegExp(regex_string , "i"))}`)
         if (group_spams.length == 0 )
             return false;
         if(text.match(new RegExp(regex_string , "i"))){
-            console.log("it was  a match")
+            log.info("it was  a match")
             return true;
         }
         return false;
@@ -200,7 +204,7 @@ class Database {
                 spam_with_dots = spam_with_dots.insert(i,"\.*,*،*")
               }
               regex_array.push(spam_with_dots);
-            //   console.log("spam with dots : "+spam_with_dots)
+            //   log.info("spam with dots : "+spam_with_dots)
         });
         return regex_array.join("|")
     }
@@ -342,8 +346,8 @@ class Database {
 
 
 
-        console.log("ans is : "+ans)
-        console.log("wn is : "+ans.warnsNumber)
+        log.info("ans is : "+ans)
+        log.info("wn is : "+ans.warnsNumber)
         return ans.warnsNumber;
     }
 
@@ -351,15 +355,15 @@ class Database {
         const group = await Group.findByTgId(groupTgId);
         const [user, _] = await User.findOrCreateByTgId(from.id , from.first_name , from.last_name);
         group.addUsers(user)
-        console.log("setwarns: uid : "+user.id+" gid :"+group.id)
+        log.info("setwarns: uid : "+user.id+" gid :"+group.id)
         this.UserGroups.update(
             { warnsNumber: warnsNum },
             { where: {userId : user.id  , telegramGroupId:group.id } }
           ).then(result =>
-            console.log("update successful"+result)
+            log.info("update successful"+result)
           )
           .catch(err =>
-            console.log("update  err : "+err)
+            log.info("update  err : "+err)
           )
 
 
@@ -372,10 +376,10 @@ class Database {
             { scoreNumber: scoreNum },
             { where: {userId : user.id  , telegramGroupId:group.id} }
           ).then(result =>
-            console.log("update successful"+result)
+            log.info("update successful"+result)
           )
           .catch(err =>
-            console.log("update  err : "+err)
+            log.info("update  err : "+err)
           )
 
 
@@ -391,7 +395,7 @@ class Database {
                 date_send:date
             }
         });
-        console.log('saving message')
+        log.info('saving message')
         await group.addMessage(message);
     }
     async get_score(groupTgId, userTgId) {
@@ -403,16 +407,16 @@ class Database {
                 }
             ]
         });
-        console.log("get_score:GOT MODEL")
+        log.info("get_score:GOT MODEL")
         const user = group.dataValues.users.find(usr => {
             return usr.tgId == userTgId;
         });
 
         if (user != undefined) {
-            console.log("get_score:user is defined")
+            log.info("get_score:user is defined")
             return user.UserGroup.scoreNumber;
         }
-        console.log("get_score:returning nan")
+        log.info("get_score:returning nan")
         return NaN;
     }
     async get_parent(groupTgId, childTgId) {
@@ -447,14 +451,21 @@ class Database {
         });
     }
 
-    async find_or_create_group(groupId) {
+    async find_or_create_group(groupId , name) {
         const [group, _] = await Group.findOrCreate({
             where: {
+                name: name,
                 tgId: groupId
             }
         });
 
         return group;
+    }
+
+    async set_group_welcome_message(groupId , name){
+        // TODO : complete this!!
+
+
     }
 
     async find_or_create_rule(ruleType) {

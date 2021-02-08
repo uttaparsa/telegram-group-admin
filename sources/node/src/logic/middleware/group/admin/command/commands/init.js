@@ -14,7 +14,7 @@ class InitCommand extends Composer {
 
     async init(context, next) {
         // create group configs in database
-        await this.database.find_or_create_group(context.message.chat.id);
+        await this.database.find_or_create_group(context.message.chat.id ,context.message.chat.title);
 
         // say ok
         await context.replyWithMarkdown(`

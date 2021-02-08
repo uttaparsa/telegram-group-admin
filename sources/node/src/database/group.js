@@ -3,7 +3,8 @@ var exports = module.exports = {};
 exports.createModel = (sequelize, DataTypes) => {
     const Group = sequelize.define('telegram_group', {
         name: DataTypes.STRING,
-        tgId: {type: DataTypes.STRING, unique: true}
+        tgId: {type: DataTypes.STRING, unique: true},
+        welcome_message : DataTypes.STRING
     })
 
     Group.createByNameAndTgId = async function(name, groupTgId) {

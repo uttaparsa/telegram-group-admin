@@ -1,4 +1,6 @@
 var exports = module.exports = {};
+const projectRoot = require('app-root-path');
+const log = require(projectRoot + '/src/logger.js')(__filename)
 
 exports.createModel = (sequelize, DataTypes) => {
     const User = sequelize.define('user', {
@@ -16,9 +18,9 @@ exports.createModel = (sequelize, DataTypes) => {
         });
         [userr, created ] = user;
         if (created){
-            console.log("User.findOrCreateByTgId created user : "+userr)
+            log.info("User.findOrCreateByTgId created user : "+userr)
         }else{
-            console.log("User.findOrCreateByTgId found user : "+userr)
+            log.info("User.findOrCreateByTgId found user : "+userr)
         }
         return user
     }
@@ -30,9 +32,9 @@ exports.createModel = (sequelize, DataTypes) => {
         });
         [userr, created ] = user;
         if (created){
-            console.log("User.findOrCreateOnlyByTgId created user : "+userr)
+            log.info("User.findOrCreateOnlyByTgId created user : "+userr)
         }else{
-            console.log("User.findOrCreateOnlyByTgId found user : "+userr)
+            log.info("User.findOrCreateOnlyByTgId found user : "+userr)
         }
         return user
     }
