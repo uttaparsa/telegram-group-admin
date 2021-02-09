@@ -16,7 +16,7 @@ There are two types of admins , boss and admins. bosses have larger variety of a
 Commands:
 
 ```code
-git clone https://github.com/Azhant/AdminBot
+git clone https://github.com/uttaparsa/telegram-group-admin
 cd AdminBot/sources/node
 vim .env
 npm i
